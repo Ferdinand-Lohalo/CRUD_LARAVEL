@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+<div class="container">
     <style>
         .uper {
         margin-top: 40px;
@@ -19,9 +20,10 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <td>ID</td>
+                    <td>Id</td>
                     <td>Marque</td>
                     <td>Prix</td>
+                    <td>Image</td>
                     <td colspan="2">Action</td>
                 </tr>
             </thead>
@@ -44,4 +46,5 @@
             </tbody>
         </table>
     <div>
+    </div>
 @endsection
