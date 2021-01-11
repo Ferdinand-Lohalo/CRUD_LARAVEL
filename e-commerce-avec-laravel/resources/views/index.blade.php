@@ -23,7 +23,6 @@
                     <td>Id</td>
                     <td>Marque</td>
                     <td>Prix</td>
-                    <td>Image</td>
                     <td colspan="2">Action</td>
                 </tr>
             </thead>
