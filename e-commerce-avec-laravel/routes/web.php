@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/* Route::post('/creat', 'CarController@store')->name('cars'); */
+
 Route::resource('cars', 'CarController');
-Route::get('create', function (){
-    return view('create');
-});
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('create', function (){ return view('create');});
+
+Route::get('/', function () { return view('welcome');});

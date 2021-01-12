@@ -17,7 +17,7 @@ class CreateCarsTable extends Migration
             $table->id();
             $table->string('marque');
             $table->integer('prix');
-            $table->string('image')->nullable();
+            $table->mediumText('image')->nullable();
             $table->timestamps();
         });
     }

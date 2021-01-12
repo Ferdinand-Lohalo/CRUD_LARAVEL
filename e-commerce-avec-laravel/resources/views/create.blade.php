@@ -22,7 +22,7 @@
         </div><br/>
     @endif
   
-    <form method="post" action="{{ route('cars.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('cars.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="marque">Marque de Voiture:</label>
@@ -35,29 +35,16 @@
         </div>
 
         <div class="form-group">
-            <label for="file">Image </label>
-            <input type="file" name="image" class="form-control"  onchange="previewFile(this)"/>
-            <img id="previewImg" alt="" style="max-width: 130px; margin-top:20px;" />
+            <div class="custom-file">
+                <label for="file" class="custom-file-label">Chosir une image</label>
+                <input type="file" name="image" class="custom-file-input"/>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <button type="submit" name="submit" class="btn btn-primary">Ajouter</button>
     </form>
 
     </div>
     </div>
-    <script>
-        function previewFile(input){
-            var file=$("input[type=file]").get(0).file[0];
-            if(file)
-            {
-                var reader = new FileReader();
-                reader.onload = function(){
-                    $('#previewImg').attr("src",reader.result);
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
 </div>
 
 @endsection

@@ -23,6 +23,7 @@
                     <td>Id</td>
                     <td>Marque</td>
                     <td>Prix</td>
+                    <td>Image</td>
                     <td colspan="2">Action</td>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                         <td>{{$voiture->id}}</td>
                         <td>{{$voiture->marque}}</td>
                         <td>{{$voiture->prix}}</td>
+                        <td>{{$voiture->image}}</td>
                         <td><a href="{{ route('cars.edit', $voiture->id)}}" class="btn btn-success">Modifier</a></td>
                         <td>
                             <form action="{{ route('cars.destroy', $voiture->id)}}" method="post">

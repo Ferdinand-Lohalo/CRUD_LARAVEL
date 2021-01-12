@@ -35,6 +35,19 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
+        $car = new Car();
+        if ($request->hasFile('image')) {
+            $file=$request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/car/',$filename);
+            $car->image=$filename;
+        }else{
+            return $request;
+            $car->image = '';
+        }
+        $car->save();
+
         $validatedData = $request->validate([
             'marque' => 'required|max:255',
             'prix' => 'required'
@@ -75,6 +88,19 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $car = new Car();
+        if ($request->hasFile('image')) {
+            $file=$request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/car/',$filename);
+            $car->image=$filename;
+        }else{
+            return $request;
+            $car->image = '';
+        }
+        $car->save();
+        
         $validatedData = $request->validate([
             'marque' => 'required|max:255',
             'prix' => 'required'
