@@ -20,7 +20,7 @@
                         </ul>
                     </div><br />
                 @endif
-                <form method="post" action="{{ route('cars.update', $car->id ) }}">
+                <form method="POST" action="{{ route('cars.update', $car->id ) }}" enctype="multipart/form-data">
                     <div class="form-group">
                         @csrf
                         @method('PATCH')
@@ -38,7 +38,7 @@
                             <input type="file" name="image" class="custom-file-input"/>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-success" style="width: 100%">Modifier</button>
                 </form>
             </div>

@@ -35,7 +35,12 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        $car = new Car();
+        $validatedData = $request->validate([
+            'marque' => 'required|max:255',
+            'prix' => 'required'
+        ]);
+        $car = Car::create($validatedData);
+       
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $extension = $file->getClientOriginalExtension();
@@ -47,12 +52,7 @@ class CarController extends Controller
             $car->image = '';
         }
         $car->save();
-
-        $validatedData = $request->validate([
-            'marque' => 'required|max:255',
-            'prix' => 'required'
-        ]);
-        $car = Car::create($validatedData);
+        
         return redirect('/cars')->with('success', 'Voiture créer avec succèss');
     }
 
@@ -88,24 +88,12 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $car = new Car();
-        if ($request->hasFile('image')) {
-            $file=$request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $file->move('uploads/car/',$filename);
-            $car->image=$filename;
-        }else{
-            return $request;
-            $car->image = '';
-        }
-        $car->save();
-        
         $validatedData = $request->validate([
             'marque' => 'required|max:255',
             'prix' => 'required'
         ]);
             Car::whereId($id)->update($validatedData);
+            
         return redirect('/cars')->with('success', 'Voiture mise à jour avec succèss');
     }
 
