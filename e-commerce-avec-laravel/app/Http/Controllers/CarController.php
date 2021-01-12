@@ -88,12 +88,26 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
+      
+        
         $validatedData = $request->validate([
             'marque' => 'required|max:255',
             'prix' => 'required'
         ]);
             Car::whereId($id)->update($validatedData);
-            
+
+            $car = Car::find($id);
+            if ($request->hasFile('image')) {
+                $file=$request->file('image');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extension;
+                $file->move('uploads/car/',$filename);
+                $car->image=$filename;
+            }else{
+                return $request;
+                $car->image = '';
+            }
+            $car->save();
         return redirect('/cars')->with('success', 'Voiture mise à jour avec succèss');
     }
 

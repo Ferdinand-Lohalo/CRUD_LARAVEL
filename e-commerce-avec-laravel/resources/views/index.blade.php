@@ -33,7 +33,8 @@
                         <td>{{$voiture->id}}</td>
                         <td>{{$voiture->marque}}</td>
                         <td>{{$voiture->prix}}</td>
-                        <td>{{$voiture->image}}</td>
+                        <td> <img src="{{ asset('uploads/car/' .$voiture->image) }}" width="100px"></td> {{-- ce chemin permet d'achicher la photo --}}
+
                         <td><a href="{{ route('cars.edit', $voiture->id)}}" class="btn btn-success">Modifier</a></td>
                         <td>
                             <form action="{{ route('cars.destroy', $voiture->id)}}" method="post">

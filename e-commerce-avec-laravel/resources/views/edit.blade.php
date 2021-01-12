@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <div class="custom-file">
                             <label for="file" class="custom-file-label">Chosir une image</label>
-                            <input type="file" name="image" class="custom-file-input"/>
+                            <input type="file" name="image" class="custom-file-input" value="{{ $car->image }}"/>
                         </div>
                     </div>
 
