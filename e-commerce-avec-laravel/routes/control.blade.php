@@ -13,7 +13,6 @@ class CarController extends Controller
      */
     public function index()
     {   
-        $voitures = Car::inRandomOrder()->take(100)->get(); /* On séléctionne aléatoirement les produit */
         $voitures = Car::all();
         return view('index', compact('voitures'));
     }
@@ -65,7 +64,8 @@ class CarController extends Controller
      */
     public function show($id)
     {
-        //
+        $voiture = Car::where('id', $id)->first();
+        return view('show')->with('voiture', $voiture);
     }
 
     /**
