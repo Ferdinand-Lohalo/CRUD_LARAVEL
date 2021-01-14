@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Car;
+use Illuminate\Http\Request;
+
 class CarController extends Controller
 {
     /**
@@ -12,7 +13,7 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $voitures = Car::all();
         return view('index', compact('voitures'));
     }
@@ -89,8 +90,6 @@ class CarController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
-        
         $validatedData = $request->validate([
             'marque' => 'required|max:255',
             'prix' => 'required'

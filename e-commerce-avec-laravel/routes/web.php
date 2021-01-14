@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/cars', 'CarController');
-Route::get('/show', 'CarController@show')->name('show');
+Route::resource('cars', 'CarController');
