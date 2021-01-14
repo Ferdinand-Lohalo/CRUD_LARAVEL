@@ -12,7 +12,8 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $voitures = Car::inRandomOrder()->take(100)->get(); /* On séléctionne aléatoirement les produit */
         $voitures = Car::all();
         return view('index', compact('voitures'));
     }

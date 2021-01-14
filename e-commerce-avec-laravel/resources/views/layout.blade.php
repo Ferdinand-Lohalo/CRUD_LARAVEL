@@ -8,6 +8,7 @@
 
         {{-- ***css de bootstrap*** --}}
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/blog.css') }}" rel="stylesheet">
         <link href="{{ asset('vendor/bootstrap/css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
     </head>
     <body>
@@ -24,7 +25,7 @@
                     <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="create">Ajouter une voiture</a>
+                    <a class="nav-link" href="create">Admin</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="cars">Liste des voitures disponibles</a>
@@ -35,7 +36,12 @@
             </nav>
             @yield('content')
         </div>
-
+        <footer class="blog-footer">
+            <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            <p>
+              <a href="#">Back to top</a>
+            </p>
+        </footer>
         {{-- ***js local*** --}}
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}" type="text/js"></script>
