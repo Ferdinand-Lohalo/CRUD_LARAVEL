@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     use HasFactory;
-/*     protected $table = 'cars'; */
     protected $fillable = ['marque', 'prix', 'image'];
+
+    public function getPrice()
+    {
+        $price = $this->price/100;
+        return number_format($price, 2, ',', ''). ' $';
+    }
 }

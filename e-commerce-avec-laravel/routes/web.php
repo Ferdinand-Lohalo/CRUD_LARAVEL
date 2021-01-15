@@ -16,3 +16,6 @@ use App\Http\Controllers\CarController;
 */
 
 Route::resource('cars', 'CarController');
+
+Route::get('/', 'CarController@index');
+Route::get('/create', 'CarController@create');
