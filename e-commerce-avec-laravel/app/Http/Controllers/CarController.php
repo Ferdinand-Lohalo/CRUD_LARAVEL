@@ -41,7 +41,6 @@ class CarController extends Controller
             'prix' => 'required'
         ]);
         $car = Car::create($validatedData);
-       
         if ($request->hasFile('image')) {
             $file=$request->file('image');
             $extension = $file->getClientOriginalExtension();

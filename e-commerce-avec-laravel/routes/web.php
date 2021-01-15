@@ -16,6 +16,11 @@ use App\Http\Controllers\CarController;
 */
 
 Route::resource('cars', 'CarController');
+Route::resource('commande', 'CommandeController');
+
+/* Les routes des créations */
+Route::post('create', 'CommandeController@store');
+Route::get('create', 'CommandeController@store')->name('create.store');
+Route::get('/create', 'CarController@create');
 
 Route::get('/', 'CarController@index');
-Route::get('/create', 'CarController@create');
