@@ -25,10 +25,10 @@
                     <a class="nav-link active" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="create">Admin</a>
+                    <a class="nav-link" href="{{ route('cars.create') }}">Admin</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="cars">Liste des voitures disponibles</a>
+                    <a class="nav-link" href="{{ route('cars.index')}}">Liste des voitures disponibles</a>
                     </li>
                 </ul>
                 </div>

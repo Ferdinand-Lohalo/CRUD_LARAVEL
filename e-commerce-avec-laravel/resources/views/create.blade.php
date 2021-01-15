@@ -22,7 +22,7 @@
         </div><br/>
     @endif
   
-    <form method="POST" action="{{ route('cars.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('cars.create') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="marque">Marque de Voiture:</label>
