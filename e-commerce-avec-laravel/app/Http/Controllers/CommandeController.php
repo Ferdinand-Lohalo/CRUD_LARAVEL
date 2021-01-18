@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Commande;
 use Illuminate\Http\Request;
 use Illuminate\Console\Command;
+use phpDocumentor\Reflection\DocBlock\Tags\Formatter;
 
 class CommandeController extends Controller
 {
@@ -36,13 +37,13 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'quantite' => 'required'
-        ]);
-        
-        $commande= Commande::create($validatedData);
+        $prix = $request->all();
+
+        $total = $this->$prix->prix * $this->$prix->quantite;
+
+        dd($total);
+        $commande= Commande::create($prix);
         $commande->save();
-        
         return redirect()->back()->with('success', 'Commande enregistrée avec succès!');
     }
 

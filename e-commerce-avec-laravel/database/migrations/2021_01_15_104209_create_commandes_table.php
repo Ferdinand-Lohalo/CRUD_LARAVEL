@@ -16,7 +16,7 @@ class CreateCommandesTable extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->integer('quantite');
-            $table->integer('prix_total')->unique()->nullable();
+            $table->integer('prix')->unique()->nullable();
             $table->timestamps();
         });
     }

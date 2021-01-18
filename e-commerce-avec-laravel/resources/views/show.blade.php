@@ -37,9 +37,9 @@
 
         <form name="commande" action="{{ route('commande.store') }}" method="POST" class="form-group" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="" class="form-control"><br>
-            <input type="hidden" name="prix_total" value="{{ sommePrix() }}" class="form-control"><br>
-            <input type="number" name="quantite" value="" class="form-control" placeholder="Entrez la quantité de produit"><br>
+            <input type="hidden" name="id" value="id" class="form-control"><br>
+            <input type="hidden" name="prix" value="prix" class="form-control"><br>
+            <input type="number" name="quantite" value="quantite" class="form-control" placeholder="Entrez la quantité de produit"><br>
             <button type="submit" class="btn btn-dark">Commander</button>
         </form>
         </div>
