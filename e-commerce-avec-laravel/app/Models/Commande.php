@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Commande extends Model
 {
     use HasFactory;
-    protected $commande = ['quantite', 'prix_total'];
+    protected $fillable = ['quantite', 'prix_total'];
+
+    public function getPrix(){
+
+    }
 }

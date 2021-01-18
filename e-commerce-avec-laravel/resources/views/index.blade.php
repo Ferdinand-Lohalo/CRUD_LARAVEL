@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$voiture->marque}}</h5>
                     <p class="card-text">This is a longer card with .</p>
-                    <h4>{{$voiture->getPrice()}}</h4>
+                    <h4>{{$voiture->prix }}</h4>
                     {{-- <p>Ajouter le <small class="text-muted">{{ $voiture->created_at->format('d/m/Y') }}</small></p> --}}
                     <a href="{{ route('cars.show', $voiture->id) }}" class="btn btn-primary">Detail</a>
                 </div>

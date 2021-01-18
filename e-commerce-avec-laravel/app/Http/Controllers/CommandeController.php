@@ -35,12 +35,9 @@ class CommandeController extends Controller
      */
     public function store(Request $request)
     {
-        $validatetionCommande = $request->validate([
-            'quatite' => 'required',
-            'prix_total' => 'required'
-        ]);
-        $car = Commande::create($validatetionCommande);
-        return redirect('/commande')->with('success', 'La commande a été ajoutée avec succès!');
+        $request->input('prix_total');
+        $request->input('quantite');
+        dd( $request->input())->prix_ttal;
     }
 
     /**

@@ -12,14 +12,16 @@
             <div class="card-body">
             <h5 class="card-title">{{$voiture->marque}}</h5>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <h4>{{$voiture->getPrice()}}</h4>
+            <h4>{{$voiture->prix }}</h4>
             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
 
-        <form action="{{ route('commande.store') }}" method="post" class="form-group" enctype="multipart/form-data">
+        <form name="commande" action="{{ route('commande.store') }}" method="post" class="form-group" enctype="multipart/form-data">
             @csrf
-            <input type="text" class="form-control" placeholder="Entrez la quantité de produit"><br>
+            <input type="hidden" name="id" value="{{ $voiture->id }}" class="form-control"><br>
+            <input type="hidden" name="prix_total" value="{{ $voiture->prix_total}}" class="form-control"><br>
+            <input type="number" name="quantite" value="{{ $voiture->quantite }}" class="form-control" placeholder="Entrez la quantité de produit"><br>
             <button type="submit" class="btn btn-dark">Commander</button>
         </form>
         </div>
