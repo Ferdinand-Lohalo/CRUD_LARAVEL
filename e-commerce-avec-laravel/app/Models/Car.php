@@ -10,7 +10,7 @@ class Car extends Model
     use HasFactory;
     protected $fillable = ['marque', 'prix', 'image'];
 /* 
-    public function getPrice()
+    public function getPrice() //Méthode de formatatge de prix
     {
         $price = $this->price/100;
         return number_format($price, 2, ',', ''). ' $';

@@ -3,6 +3,24 @@
 <br><br>
 
 <div class="container">
+     {{-- Message en cas d'erreur --}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div><br/>
+    @endif
+        {{-- Message de succès en cas d'opération réussit --}}
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    <br/>
+    @endif
+
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
         <div class="col-md-4">
@@ -17,11 +35,11 @@
             </div>
         </div>
 
-        <form name="commande" action="{{ route('commande.store') }}" method="post" class="form-group" enctype="multipart/form-data">
+        <form name="commande" action="{{ route('commande.store') }}" method="POST" class="form-group" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{ $voiture->id }}" class="form-control"><br>
-            <input type="hidden" name="prix_total" value="{{ $voiture->prix_total}}" class="form-control"><br>
-            <input type="number" name="quantite" value="{{ $voiture->quantite }}" class="form-control" placeholder="Entrez la quantité de produit"><br>
+            <input type="hidden" name="id" value="" class="form-control"><br>
+            <input type="hidden" name="prix_total" value="{{ sommePrix() }}" class="form-control"><br>
+            <input type="number" name="quantite" value="" class="form-control" placeholder="Entrez la quantité de produit"><br>
             <button type="submit" class="btn btn-dark">Commander</button>
         </form>
         </div>
